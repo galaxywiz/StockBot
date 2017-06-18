@@ -45,9 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KiwoomCode.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="SingleTon.cs" />
+    <Compile Include="Calcuate\Calculator.cs" />
+    <Compile Include="Calcuate\Evaluation.cs" />
+    <Compile Include="KiwoomStock\KiwoomCode.cs" />
+    <Compile Include="Util\Logger.cs" />
+    <Compile Include="Calcuate\PriceData.cs" />
+    <Compile Include="Util\SingleTon.cs" />
     <Compile Include="StockBotDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +59,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="KiwoomStock\StockData.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
