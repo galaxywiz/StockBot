@@ -60,6 +60,7 @@
     <Compile Include="KiwoomStock\StockStatement.cs" />
     <Compile Include="Util\Logger.cs" />
     <Compile Include="Calcuate\PriceData.cs" />
+    <Compile Include="Util\Mail.cs" />
     <Compile Include="Util\SingleTon.cs" />
     <Compile Include="StockBotDlg.cs">
       <SubType>Form</SubType>

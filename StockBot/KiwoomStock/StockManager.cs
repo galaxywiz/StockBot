@@ -1,4 +1,5 @@
 ﻿using StockBot.DlgControl;
+using StockBot.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace StockBot.KiwoomStock
                     if (this.allStockLoadComplete() == false) {
                         this.shrink();
                         this.loadStockHistory(PRICE_TYPE.DAY);
+                        this.sendWatchingStock();
                     }
                     this.drawStockView();
                 }
@@ -336,6 +338,41 @@ namespace StockBot.KiwoomStock
             lock (lockObject_) {
                 StockPoolViewer.getInstance.print(stockPool_);
             }
+        }
+
+        //--------------------------------------------------------
+        // 메일 보내기
+        string mailTag_ = "[주식봇] ";
+        private void sendWatchingStock()
+        {
+            Mail mail = new Mail();
+
+            mail.setToMailAddr("test@test.com");
+            string title = mailTag_ + DateTime.Now.ToString("yyyy년 MM월 dd일") + "감시 리스트";
+            mail.setSubject(title);
+
+            string TABLE_FORMATE = "{0,-10}, {1,-16} {2,-10:D6} {3,-10} {4,-10} {5,-10} x {6,-10} = {7,-10}\n\r";
+            string body = string.Format(TABLE_FORMATE,
+                "가치pt", "주식명", "주식코드", "현재가", "구입여부", "구입갯수", "구입가격", "총 소비비용");
+            body += "=======================================================================\n\r";
+            lock (lockObject_) {
+                foreach (KeyValuePair<int, StockData> keyValue in stockPool_) {
+                    int code = keyValue.Key;
+                    StockData stockData = keyValue.Value;
+
+                    if (stockData.isBuyedStock()) {
+                        BuyedStockData buyedStockData = (BuyedStockData)stockData;
+                        body += string.Format(TABLE_FORMATE,
+                            buyedStockData.valuation_, buyedStockData.name_, buyedStockData.code_, buyedStockData.nowPrice(PRICE_TYPE.DAY), "YES", buyedStockData.buyCount_, buyedStockData.buyPrice_, buyedStockData.totalBuyPrice());
+                    }
+                    else {
+                        body += string.Format("{0,-10}, {1,-16} {2,-10:D6} {3,-10} {4,-10}\n\r",
+                            stockData.valuation_, stockData.name_, stockData.code_, stockData.nowPrice(PRICE_TYPE.DAY), "NO");
+                    }
+                }
+            }
+            mail.setBody(body);
+            mail.send();
         }
     }
 }
