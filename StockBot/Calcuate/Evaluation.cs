@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StockBot
 {
@@ -285,7 +282,7 @@ namespace StockBot
                 item_[(int)EVALUATION_ITEM.MACD] = STOCK_EVALUATION.매도;
                 return;
             }
-            // 음.....
+            
             if (macdOscilBefore2 < macdOscilBefore
                 && macdOscilBefore < macdOscilNow
                 && macdOscilNow < 0) {

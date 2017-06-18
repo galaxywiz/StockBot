@@ -11,12 +11,15 @@ namespace StockBot
         /// <summary>
         /// 해당 응용 프로그램의 주 진입점입니다.
         /// </summary>
+
+        public static StockBotDlg stockBotDlg_ = null;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StockBotDlg());
+            stockBotDlg_ = new StockBotDlg();
+            Application.Run(stockBotDlg_);
         }
     }
 }

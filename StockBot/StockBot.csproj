@@ -48,6 +48,9 @@
     <Compile Include="Calcuate\Calculator.cs" />
     <Compile Include="Calcuate\Evaluation.cs" />
     <Compile Include="KiwoomStock\KiwoomCode.cs" />
+    <Compile Include="KiwoomStock\StockManager.cs" />
+    <Compile Include="KiwoomStock\StockEngine.cs" />
+    <Compile Include="KiwoomStock\StockStatement.cs" />
     <Compile Include="Util\Logger.cs" />
     <Compile Include="Calcuate\PriceData.cs" />
     <Compile Include="Util\SingleTon.cs" />
