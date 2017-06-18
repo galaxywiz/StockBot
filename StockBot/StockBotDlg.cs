@@ -1,6 +1,8 @@
-﻿using StockBot.KiwoomStock;
+﻿using StockBot.DlgControl;
+using StockBot.KiwoomStock;
 using System;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace StockBot
 {
@@ -90,6 +92,20 @@ namespace StockBot
         {
             return DataGridView_StockPool;
         }
-           
+
+        public Chart chart_Stock()
+        {
+            return chart_stock;
+        }
+
+        public Chart chart_Macd()
+        {
+            return chart_macd;
+        }
+
+        private void DataGridView_StockPool_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            StockPoolViewer.getInstance.cellClick(sender, e);
+        }
     }
 }

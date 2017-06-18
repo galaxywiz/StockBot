@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Calcuate\Calculator.cs" />
     <Compile Include="Calcuate\Evaluation.cs" />
+    <Compile Include="DlgControl\StockChart.cs" />
     <Compile Include="DlgControl\StockPoolViewer.cs" />
     <Compile Include="KiwoomStock\KiwoomCode.cs" />
     <Compile Include="KiwoomStock\StockManager.cs" />

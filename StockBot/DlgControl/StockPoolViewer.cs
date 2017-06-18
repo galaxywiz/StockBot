@@ -198,6 +198,7 @@ namespace StockBot.DlgControl
             }
 
             //TODO : 주식 선택시 다른 정보 표시를 하고 싶으면 이 이하에 추가 한다.
+            StockChart.getInstance.drawStock(stockData);
         }
     }
 }
