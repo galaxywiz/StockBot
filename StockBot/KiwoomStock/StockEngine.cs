@@ -92,11 +92,18 @@ namespace StockBot
 
         //---------------------------------------------------------------------
         // 실제 주문을 하는 곳.
+        private long tickCount_ = 0;
         private void processStockOrder()
         {
             if (!this.runLoop()) {
                 return;
             }
+            long now = DateTime.Now.Ticks;
+            if (tickCount_ + (TimeSpan.TicksPerSecond * 3) < now) {
+                tickCount_ = now;
+                runNextOrderFlag_ = true;       // 3초이내 응답이 없으면 강제로 flag 켜준다.
+            }
+
             // 다음 요청이 올때까지 hold (COM 모듈 내부가 꼬이는듯 ㅡㅡ..)
             if (!runNextOrderFlag_) {
                 return;

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using StockBot.DlgControl;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -10,13 +12,34 @@ namespace StockBot.KiwoomStock
     {
         public int accountMoney_ { get; set; }
 
+        long tickCount_ = 0;                // 시간 등록
         public void start()
         {
-            this.reloadAccountInfo();
+            StockEngine engine = StockEngine.getInstance;
+            engine.addOrder(new SuddenlyHighTradingStock());
+            engine.addOrder(new YesterdayHighTradingStock());
+            engine.addOrder(new AgencyTradingStock());
+            engine.addOrder(new NewHighPriceStock());            
+
+            tickCount_ = DateTime.Now.Ticks;
         }
 
         public void process()
         {
+            if (tickCount_ != 0) {
+                long now = DateTime.Now.Ticks;
+                //30 초마다 1번씩 실행
+                if (tickCount_ + (TimeSpan.TicksPerSecond * 10) < now) {
+                    tickCount_ = now;
+
+                    if (this.allStockLoadComplete() == false) {
+                        this.shrink();
+                        this.loadStockHistory(PRICE_TYPE.DAY);
+                    }
+                    this.drawStockView();
+                }
+            }
+
             Thread.Sleep(1);
         }
 
@@ -94,7 +117,7 @@ namespace StockBot.KiwoomStock
             lock (lockObject_) {
                 ArrayList deletePool = new ArrayList();
 
-                const int minValuation = 50;       // 가치 평가 50점 이상만 담기
+                const int minValuation = 80;       // 가치 평가 80점 이상만 담기
                 foreach (KeyValuePair<int, StockData> keyValue in stockPool_) {
                     int code = keyValue.Key;
                     StockData stockData = keyValue.Value;
@@ -254,17 +277,18 @@ namespace StockBot.KiwoomStock
 
                     Logger.getInstance.consolePrint("* 데이터 요청 : {0:S15}:{1:D6} 주식 데이터", stockData.name_, stockData.code_);
 
-                    if (type == PRICE_TYPE.DAY) {
-                        StockEngine.getInstance.addOrder(new HistoryTheDaysStock(code));
-                        continue;
-                    }
+                    switch (type) {
+                        case PRICE_TYPE.DAY:
+                            List<PriceData> data = stockData.priceTable_[(int)PRICE_TYPE.DAY];
+                            if (data.Count == 0) {
+                                StockEngine.getInstance.addOrder(new HistoryTheDaysStock(code));
+                            }
+                            break;
 
-                    List<PriceData> data = stockData.priceTable_[(int)PRICE_TYPE.DAY];
-                    if (data.Count == 0) {
-                        StockEngine.getInstance.addOrder(new HistoryTheDaysStock(code));
+                        case PRICE_TYPE.MIN:
+                            StockEngine.getInstance.addOrder(new HistoryTheMinsStock(code));
+                            break;
                     }
-                    //StockEngine.getInstance.addOrder(new HistoryTheTicksStock(code));
-                    StockEngine.getInstance.addOrder(new HistoryTheMinsStock(code));
                 }
             }
         }
@@ -303,6 +327,14 @@ namespace StockBot.KiwoomStock
                 foreach (int code in deleteData) {
                     stockPool_.Remove(code);
                 }
+            }
+        }
+
+        // 다이얼로그에 그리기 함수
+        public void drawStockView()
+        {
+            lock (lockObject_) {
+                StockPoolViewer.getInstance.print(stockPool_);
             }
         }
     }

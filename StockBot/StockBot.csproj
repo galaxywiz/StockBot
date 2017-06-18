@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6ECC7ADC-6F11-47FB-8B14-81B790BE28F0}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>StockBot</RootNamespace>
     <AssemblyName>StockBot</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Calcuate\Calculator.cs" />
     <Compile Include="Calcuate\Evaluation.cs" />
+    <Compile Include="DlgControl\StockPoolViewer.cs" />
     <Compile Include="KiwoomStock\KiwoomCode.cs" />
     <Compile Include="KiwoomStock\StockManager.cs" />
     <Compile Include="KiwoomStock\StockEngine.cs" />

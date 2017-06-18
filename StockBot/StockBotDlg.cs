@@ -36,14 +36,17 @@ namespace StockBot
             StockEngine.getInstance.start();
         }
 
-        private bool started_;
+        private bool started_ = false;
         private void Button_start_Click(object sender, EventArgs e)
         {
+            if (this.started_) {
+                return;
+            }
             Button_start.Enabled = false;
             if (StockEngine.getInstance.start()) {
                 StockManager.getInstance.start();
             }
-            started_ = true;
+            this.started_ = true;
         }
 
         private void Button_quit_Click_1(object sender, EventArgs e)
