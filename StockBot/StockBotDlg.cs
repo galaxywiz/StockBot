@@ -107,5 +107,10 @@ namespace StockBot
         {
             StockPoolViewer.getInstance.cellClick(sender, e);
         }
+
+        public WebBrowser chart_WebBrowser()
+        {
+            return webBrowser;
+        }
     }
 }

@@ -28,13 +28,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockBotDlg));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ListView_Log = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,6 +51,7 @@
             this.chart_stock = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_macd = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
@@ -196,8 +197,8 @@
             // 
             // DataGridView_StockPool
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.DataGridView_StockPool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.DataGridView_StockPool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView_StockPool.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DataGridView_StockPool.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_StockPool.Location = new System.Drawing.Point(12, 152);
@@ -212,32 +213,32 @@
             // 
             // chart_stock
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_stock.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_stock.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart_stock.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart_stock.Legends.Add(legend3);
             this.chart_stock.Location = new System.Drawing.Point(11, 20);
             this.chart_stock.Name = "chart_stock";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart_stock.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart_stock.Series.Add(series3);
             this.chart_stock.Size = new System.Drawing.Size(821, 205);
             this.chart_stock.TabIndex = 9;
             this.chart_stock.Text = "chart1";
             // 
             // chart_macd
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_macd.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_macd.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart_macd.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart_macd.Legends.Add(legend4);
             this.chart_macd.Location = new System.Drawing.Point(11, 231);
             this.chart_macd.Name = "chart_macd";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_macd.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart_macd.Series.Add(series4);
             this.chart_macd.Size = new System.Drawing.Size(821, 100);
             this.chart_macd.TabIndex = 10;
             this.chart_macd.Text = "chart2";
@@ -253,11 +254,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "차트";
             // 
+            // webBrowser
+            // 
+            this.webBrowser.Location = new System.Drawing.Point(859, 13);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Size = new System.Drawing.Size(561, 655);
+            this.webBrowser.TabIndex = 12;
+            // 
             // StockBotDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 678);
+            this.ClientSize = new System.Drawing.Size(1432, 678);
+            this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.DataGridView_StockPool);
             this.Controls.Add(this.groupBox3);
@@ -295,6 +305,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_stock;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_macd;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.WebBrowser webBrowser;
     }
 }
 

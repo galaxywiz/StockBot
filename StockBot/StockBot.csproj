@@ -53,6 +53,7 @@
     <Compile Include="Calcuate\Evaluation.cs" />
     <Compile Include="DlgControl\StockChart.cs" />
     <Compile Include="DlgControl\StockPoolViewer.cs" />
+    <Compile Include="DlgControl\StockWebBrowser.cs" />
     <Compile Include="KiwoomStock\KiwoomCode.cs" />
     <Compile Include="KiwoomStock\StockManager.cs" />
     <Compile Include="KiwoomStock\StockEngine.cs" />
