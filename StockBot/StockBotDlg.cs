@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StockBot
 {
-    public partial class StockBot : Form
+    public partial class StockBotDlg : Form
     {
-        public StockBot()
+        public StockBotDlg()
         {
             InitializeComponent();
         }

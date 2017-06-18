@@ -1,6 +1,6 @@
 ﻿namespace StockBot
 {
-    partial class StockBot
+    partial class StockBotDlg
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockBot));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockBotDlg));
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.SuspendLayout();

@@ -16,7 +16,7 @@ namespace StockBot
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StockBot());
+            Application.Run(new StockBotDlg());
         }
     }
 }

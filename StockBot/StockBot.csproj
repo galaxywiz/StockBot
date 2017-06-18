@@ -45,11 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StockBot.cs">
+    <Compile Include="KiwoomCode.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="SingleTon.cs" />
+    <Compile Include="StockBotDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockBot.Designer.cs">
-      <DependentUpon>StockBot.cs</DependentUpon>
+    <Compile Include="StockBotDlg.Designer.cs">
+      <DependentUpon>StockBotDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,8 +65,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StockBot.resx">
-      <DependentUpon>StockBot.cs</DependentUpon>
+    <EmbeddedResource Include="StockBotDlg.resx">
+      <DependentUpon>StockBotDlg.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
